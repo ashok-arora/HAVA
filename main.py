@@ -1,8 +1,13 @@
 import pygame
 import pygame_menu
+from asteroid_deflector import start_asteroid_deflector
+from game_2048 import start_2048
+from dx_ball_lite import start_dx_ball_lite
+from air_hockey import start_air_hockey
 
 pygame.init()
 surface = pygame.display.set_mode((600, 400))
+pygame.display.set_caption('Game World')
 game_selected_to_play = 0
 
 font = pygame_menu.font.FONT_MUNRO
@@ -17,7 +22,14 @@ def set_game(_, value):
 
 
 def start_the_game():
-    pass
+    if game_selected_to_play == 0:
+        start_asteroid_deflector()
+    elif game_selected_to_play == 1:
+        start_2048()
+    elif game_selected_to_play == 2:
+        start_dx_ball_lite()
+    elif game_selected_to_play == 3:
+        start_air_hockey()
 
 
 menu = pygame_menu.Menu(
@@ -27,8 +39,8 @@ menu = pygame_menu.Menu(
     theme=mytheme
 )
 
-menu.add_selector('', [('Game 1', 0), ('Game 2', 1),
-                       ('Game 3', 2), ('Game 4', 3)], onchange=set_game)
+menu.add_selector('', [('Asteroid Deflector', 0), ('2048', 1),
+                       ('DX Ball Lite', 2), ('Air Hockey', 3)], onchange=set_game)
 menu.add_button('LET\'S PLAY!', start_the_game)
 menu.add_button('Quit', pygame_menu.events.EXIT)
 
