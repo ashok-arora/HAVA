@@ -22,7 +22,7 @@ Our submission entry is a `Game World` consisting of 4 games, namely:
 
 It was designed using Python elements pygame, pygame-menu, Tkinter and Pyglet
 
-Link to video demonstration explaining the working:
+Link to video demonstration explaining the working: https://youtu.be/ZCOwKxp7xSk
 
 `hava` team members are:
 
